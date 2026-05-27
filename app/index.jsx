@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import Button from '../components/button';
 
 
 export default function Home(){
@@ -9,12 +10,11 @@ export default function Home(){
     }
     return(
         <View style={styles.container}>
-            <View style={styles.headerContainer}>
-            </View>
-            <View style={styles.Textcontainer}>
-                <Text style={styles.welcomeMessage}>Welcome</Text>
-                <Pressable style={styles.button} onPress={handleLogin}><Text style={styles.buttonText}>Sign In</Text></Pressable>
-            </View>
+                <Image source={require('../assets/images/homepage.png')} resizeMode='contain' style={styles.image}/>
+                <Text style={styles.welcomeMessage}>Welcome to EuEuStore!</Text>
+                <Text>We Hope you enjoy your Shoping Experience</Text>
+               <Button signIn={true} title={'Sign In'} handlePress={handleLogin}/>
+            
         </View>
         
     )
@@ -23,42 +23,21 @@ export default function Home(){
 const styles = StyleSheet.create = ({
     container:{
         flex:1,
+        flexDirection:'column',
         justifyContent:'center',
         alignItems:'center',
         
     },
-    button :{
-        width:100,
-        backgroundColor:'#ff0ff8',
-        padding:10,
-        borderRadius:5,
-        alignItems:'center',
-        marginTop:20,
-        marginLeft:160
-
+    image:{
+        width:180,
+        height:200
     },
-    buttonText:{
-        color:'white',
-
-    },
-    headerContainer:{
-        backgroundColor:'#ff7093',
-        height:470,
-        width:415
-    },
+   
+   
     welcomeMessage:{
-        fontSize:40,
+        fontSize:20,
         fontWeight:'bold',
-        color:'#ff7093',
-        textAlign:'center',
-        marginTop:200
+        textAlign:'center'
 
-    },
-
-    Textcontainer: {
-        width:415,
-        height:470
     }
-
-    
 });
